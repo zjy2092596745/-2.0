@@ -1,0 +1,285 @@
+[
+  {
+    "word": "invisible",
+    "ipa": "/ɪnˈvɪzəbl/",
+    "def": "不可见的; 无形的",
+    "ex_en": "The bacteria are invisible to the naked eye.",
+    "ex_cn": "这些细菌肉眼是看不见的。",
+    "category": "导入单词",
+    "roots": [
+      {
+        "type": "prefix",
+        "text": "in-",
+        "meaning": "不; 非; 无",
+        "origin": "Latin"
+      },
+      {
+        "type": "root",
+        "text": "vis",
+        "meaning": "看; 看见",
+        "origin": "Latin"
+      },
+      {
+        "type": "suffix",
+        "text": "-ible",
+        "meaning": "能够...的; 可...的",
+        "origin": "Latin"
+      }
+    ],
+    "etymology": "源于拉丁语，由否定前缀 in- + 词根 vis(看) + 后缀 -ible(可...的) 组成，字面意思是"不能被看见的"。"
+  },
+  {
+    "word": "supervise",
+    "ipa": "/ˈsuːpəvaɪz/",
+    "def": "监督; 管理; 指导",
+    "ex_en": "The nurse will supervise the medication administration.",
+    "ex_cn": "护士将监督药物的施用。",
+    "category": "导入单词",
+    "roots": [
+      {
+        "type": "prefix",
+        "text": "super-",
+        "meaning": "在...之上; 超过",
+        "origin": "Latin"
+      },
+      {
+        "type": "root",
+        "text": "vis",
+        "meaning": "看; 观察",
+        "origin": "Latin"
+      }
+    ],
+    "etymology": "由 super(在上) + vis(看) 组成，原意为"从上往下看"，引申为"监督、管理"。"
+  },
+  {
+    "word": "visual",
+    "ipa": "/ˈvɪʒuəl/",
+    "def": "视觉的; 看得见的",
+    "ex_en": "Visual aids help students learn more effectively.",
+    "ex_cn": "视觉辅助工具帮助学生更有效地学习。",
+    "category": "导入单词",
+    "roots": [
+      {
+        "type": "root",
+        "text": "vis",
+        "meaning": "看; 视觉",
+        "origin": "Latin"
+      },
+      {
+        "type": "suffix",
+        "text": "-ual",
+        "meaning": "与...有关的; ...的",
+        "origin": "Latin"
+      }
+    ],
+    "etymology": "来自拉丁语词根 vis(看) + 形容词后缀 -ual，表示"与视觉有关的"。"
+  },
+  {
+    "word": "hypertension",
+    "ipa": "/ˌhaɪpərˈtenʃn/",
+    "def": "高血压",
+    "ex_en": "Hypertension is a common condition among elderly patients.",
+    "ex_cn": "高血压是老年患者中常见的疾病。",
+    "category": "护理英语",
+    "roots": [
+      {
+        "type": "prefix",
+        "text": "hyper-",
+        "meaning": "超过; 过度; 高于",
+        "origin": "Greek"
+      },
+      {
+        "type": "root",
+        "text": "tens",
+        "meaning": "伸展; 张力; 压力",
+        "origin": "Latin"
+      },
+      {
+        "type": "suffix",
+        "text": "-ion",
+        "meaning": "状态; 行为; 过程",
+        "origin": "Latin"
+      }
+    ],
+    "etymology": "由希腊语前缀 hyper-(过度) + 拉丁语词根 tens(张力) + 后缀 -ion(状态) 组成，表示"血压过高的状态"。"
+  },
+  {
+    "word": "hypotension",
+    "ipa": "/ˌhaɪpoʊˈtenʃn/",
+    "def": "低血压",
+    "ex_en": "Hypotension can cause dizziness and fainting.",
+    "ex_cn": "低血压可能导致头晕和昏厥。",
+    "category": "护理英语",
+    "roots": [
+      {
+        "type": "prefix",
+        "text": "hypo-",
+        "meaning": "在...下; 低于; 不足",
+        "origin": "Greek"
+      },
+      {
+        "type": "root",
+        "text": "tens",
+        "meaning": "伸展; 张力; 压力",
+        "origin": "Latin"
+      },
+      {
+        "type": "suffix",
+        "text": "-ion",
+        "meaning": "状态; 行为; 过程",
+        "origin": "Latin"
+      }
+    ],
+    "etymology": "由希腊语前缀 hypo-(低于) + 拉丁语词根 tens(张力) + 后缀 -ion(状态) 组成，表示"血压过低的状态"。"
+  },
+  {
+    "word": "cardiology",
+    "ipa": "/ˌkɑːrdiˈɑːlədʒi/",
+    "def": "心脏病学",
+    "ex_en": "She specializes in cardiology at the hospital.",
+    "ex_cn": "她在医院专攻心脏病学。",
+    "category": "护理英语",
+    "roots": [
+      {
+        "type": "root",
+        "text": "cardi",
+        "meaning": "心脏",
+        "origin": "Greek"
+      },
+      {
+        "type": "suffix",
+        "text": "-ology",
+        "meaning": "...学; 研究; 科学",
+        "origin": "Greek"
+      }
+    ],
+    "etymology": "源于希腊语 kardia(心脏) + -logia(学科)，表示"研究心脏的学科"。"
+  },
+  {
+    "word": "psychology",
+    "ipa": "/saɪˈkɑːlədʒi/",
+    "def": "心理学",
+    "ex_en": "Understanding psychology helps nurses provide better care.",
+    "ex_cn": "了解心理学帮助护士提供更好的护理。",
+    "category": "导入单词",
+    "roots": [
+      {
+        "type": "root",
+        "text": "psych",
+        "meaning": "心灵; 精神; 思想",
+        "origin": "Greek"
+      },
+      {
+        "type": "suffix",
+        "text": "-ology",
+        "meaning": "...学; 研究; 科学",
+        "origin": "Greek"
+      }
+    ],
+    "etymology": "来自希腊语 psyche(心灵、灵魂) + -logia(学科)，意为"研究心灵和精神的学科"。"
+  },
+  {
+    "word": "thermometer",
+    "ipa": "/θərˈmɑːmɪtər/",
+    "def": "温度计; 体温计",
+    "ex_en": "Use a digital thermometer to measure body temperature.",
+    "ex_cn": "使用数字温度计来测量体温。",
+    "category": "护理英语",
+    "roots": [
+      {
+        "type": "root",
+        "text": "therm",
+        "meaning": "热; 温度",
+        "origin": "Greek"
+      },
+      {
+        "type": "suffix",
+        "text": "-meter",
+        "meaning": "测量工具; 计量器",
+        "origin": "Greek"
+      }
+    ],
+    "etymology": "由希腊语词根 therme(热) + metron(测量) 组成，表示"测量温度的工具"。"
+  },
+  {
+    "word": "antibiotic",
+    "ipa": "/ˌæntibaɪˈɑːtɪk/",
+    "def": "抗生素",
+    "ex_en": "The doctor prescribed antibiotics for the infection.",
+    "ex_cn": "医生为这个感染开了抗生素。",
+    "category": "护理英语",
+    "roots": [
+      {
+        "type": "prefix",
+        "text": "anti-",
+        "meaning": "反对; 抗; 对抗",
+        "origin": "Greek"
+      },
+      {
+        "type": "root",
+        "text": "bio",
+        "meaning": "生命; 生物",
+        "origin": "Greek"
+      },
+      {
+        "type": "suffix",
+        "text": "-tic",
+        "meaning": "与...有关的; ...性质的",
+        "origin": "Greek"
+      }
+    ],
+    "etymology": "由 anti-(对抗) + bios(生命) + -tic(形容词后缀) 组成，原意为"对抗生命的"，特指"对抗细菌等微生物的物质"。"
+  },
+  {
+    "word": "prescription",
+    "ipa": "/prɪˈskrɪpʃn/",
+    "def": "处方; 药方",
+    "ex_en": "You need a prescription to buy this medication.",
+    "ex_cn": "你需要处方才能购买这种药物。",
+    "category": "护理英语",
+    "roots": [
+      {
+        "type": "prefix",
+        "text": "pre-",
+        "meaning": "在...之前; 预先",
+        "origin": "Latin"
+      },
+      {
+        "type": "root",
+        "text": "script",
+        "meaning": "写; 书写",
+        "origin": "Latin"
+      },
+      {
+        "type": "suffix",
+        "text": "-ion",
+        "meaning": "行为; 状态; 结果",
+        "origin": "Latin"
+      }
+    ],
+    "etymology": "来自拉丁语 prae(在前) + scribere(写)，原意为"预先写下的东西"，引申为医生写下的用药指示。"
+  },
+  {
+    "word": "transplant",
+    "ipa": "/trænsˈplænt/",
+    "def": "移植; 移植手术",
+    "ex_en": "The patient is waiting for a kidney transplant.",
+    "ex_cn": "这位病人正在等待肾脏移植。",
+    "category": "护理英语",
+    "roots": [
+      {
+        "type": "prefix",
+        "text": "trans-",
+        "meaning": "转换; 转移; 穿过",
+        "origin": "Latin"
+      },
+      {
+        "type": "root",
+        "text": "plant",
+        "meaning": "种植; 放置",
+        "origin": "Latin"
+      }
+    ],
+    "etymology": "由 trans-(转移) + plant(种植) 组成，表示"将器官或组织从一个地方移植到另一个地方"。"
+  }
+]

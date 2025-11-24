@@ -5,6 +5,13 @@ export interface SRSData {
   nextReview: number;
 }
 
+export interface WordRoot {
+  type: 'prefix' | 'root' | 'suffix';
+  text: string;
+  meaning: string;
+  origin?: string;
+}
+
 export interface Word {
   id: number;
   word: string;
@@ -13,6 +20,8 @@ export interface Word {
   ex_en: string;
   ex_cn: string;
   category: string; // New field for "Book" classification
+  roots?: WordRoot[]; // Optional word root breakdown
+  etymology?: string; // Optional etymology explanation
   srs: SRSData;
 }
 
@@ -37,5 +46,5 @@ export interface AppStats {
 }
 
 export type ViewState = 'home' | 'study' | 'library' | 'stats' | 'profile';
-export type StudyMode = 'flashcard' | 'spelling';
+export type StudyMode = 'flashcard' | 'spelling' | 'root';
 export type FilterType = 'all' | 'due' | 'new' | 'learned' | 'mastered';

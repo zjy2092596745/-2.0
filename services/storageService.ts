@@ -210,7 +210,7 @@ export const StorageService = {
           const normalized: Word[] = newWords.map((item: any) => {
             const word = item.word || item.Word || item.WORD || item['单词'] || item['Term'] || item['英文'];
             const def = item.definition_cn || item.definition || item.Definition || item.meaning || item['释义'] || item['中文'];
-            
+
             if (!word || !def) return null;
 
             return {
@@ -221,7 +221,10 @@ export const StorageService = {
               ex_en: item.example_en || item.example || item.Example || item['例句'] || '',
               ex_cn: item.example_cn || item.translation || item['例句翻译'] || '',
               // Default to 'defaultCategory' if category column missing
-              category: item.category || item.Category || item['分类'] || item['书名'] || defaultCategory, 
+              category: item.category || item.Category || item['分类'] || item['书名'] || defaultCategory,
+              // Word root data (optional)
+              roots: item.roots || item.wordRoots || undefined,
+              etymology: item.etymology || item['词源'] || undefined,
               srs: { interval: 0, reps: 0, ease: 2.5, nextReview: 0 }
             };
           }).filter((w): w is Word => w !== null);

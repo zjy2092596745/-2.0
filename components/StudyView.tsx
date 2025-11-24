@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Word, StudyMode } from '../types';
 import { StorageService } from '../services/storageService';
 import { X, Volume2, ArrowRight, RotateCcw, Trophy } from 'lucide-react';
+import { WordRootCard } from './WordRootCard';
 
 interface StudyViewProps {
   queue: Word[];
@@ -114,13 +115,13 @@ export const StudyView: React.FC<StudyViewProps> = ({ queue, onComplete, onExit 
         <span className="font-bold text-blue-600">{currentIndex + 1} / {queue.length}</span>
         
         <div className="bg-slate-100 p-1 rounded-full flex">
-          <button 
+          <button
             onClick={() => setMode('flashcard')}
             className={`px-3 py-1 text-xs rounded-full transition-all ${mode === 'flashcard' ? 'bg-white shadow text-slate-800 font-bold' : 'text-slate-500'}`}
           >
             卡片
           </button>
-          <button 
+          <button
             onClick={() => {
               setMode('spelling');
               setIsFlipped(false);
@@ -128,6 +129,15 @@ export const StudyView: React.FC<StudyViewProps> = ({ queue, onComplete, onExit 
             className={`px-3 py-1 text-xs rounded-full transition-all ${mode === 'spelling' ? 'bg-white shadow text-slate-800 font-bold' : 'text-slate-500'}`}
           >
             拼写
+          </button>
+          <button
+            onClick={() => {
+              setMode('root');
+              setIsFlipped(false);
+            }}
+            className={`px-3 py-1 text-xs rounded-full transition-all ${mode === 'root' ? 'bg-white shadow text-slate-800 font-bold' : 'text-slate-500'}`}
+          >
+            词根
           </button>
         </div>
 
@@ -138,19 +148,24 @@ export const StudyView: React.FC<StudyViewProps> = ({ queue, onComplete, onExit 
 
       {/* Main Card Area */}
       <div className="flex-1 p-4 flex flex-col justify-center perspective-1000">
-        <div 
+        <div
           className="relative w-full aspect-[4/5] max-h-[500px] cursor-pointer"
           onClick={() => {
-             if (mode === 'flashcard' && !isFlipped) handleReveal();
+             if ((mode === 'flashcard' || mode === 'root') && !isFlipped) handleReveal();
           }}
         >
           <div className={`w-full h-full bg-white rounded-3xl shadow-xl border border-slate-200 flex flex-col items-center justify-center p-8 text-center transition-all duration-300 relative overflow-hidden`}>
-            
+
+            {/* Root Mode - Use dedicated component */}
+            {mode === 'root' && (
+              <WordRootCard word={currentWord} isRevealed={isFlipped} />
+            )}
+
             {/* Front / Spelling Mode */}
-            {!isFlipped && (
+            {mode !== 'root' && !isFlipped && (
               <>
                 <span className="text-xs uppercase tracking-widest text-slate-400 mb-4">Term</span>
-                
+
                 {mode === 'flashcard' ? (
                   <>
                     <h1 className="text-4xl font-extrabold text-blue-600 mb-2">{currentWord.word}</h1>
@@ -160,8 +175,8 @@ export const StudyView: React.FC<StudyViewProps> = ({ queue, onComplete, onExit 
                 ) : (
                   <div className="w-full flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
                     <p className="text-2xl font-bold text-slate-800 mb-8">{currentWord.def}</p>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       className="text-2xl text-center border-b-2 border-slate-300 focus:border-blue-600 outline-none bg-transparent w-full py-2 mb-4 text-slate-800"
                       placeholder="Type here..."
                       value={inputVal}
@@ -184,8 +199,8 @@ export const StudyView: React.FC<StudyViewProps> = ({ queue, onComplete, onExit 
               </>
             )}
 
-            {/* Back (Revealed) */}
-            {isFlipped && (
+            {/* Back (Revealed) - Only for flashcard mode */}
+            {mode !== 'root' && isFlipped && (
               <div className="flex flex-col items-center w-full h-full animate-fade-in">
                 <div className="flex items-center gap-3 mb-2">
                   <h1 className="text-3xl font-extrabold text-blue-600">{currentWord.word}</h1>
@@ -195,7 +210,7 @@ export const StudyView: React.FC<StudyViewProps> = ({ queue, onComplete, onExit 
                 </div>
                 <p className="font-mono text-slate-400 mb-6">{currentWord.ipa}</p>
                 <h2 className="text-2xl font-bold text-slate-800 mb-6">{currentWord.def}</h2>
-                
+
                 <div className="bg-slate-50 p-4 rounded-xl w-full text-left mt-auto">
                    <p className="text-slate-800 italic font-medium mb-1">{currentWord.ex_en}</p>
                    <p className="text-slate-500 text-sm">{currentWord.ex_cn}</p>
@@ -209,13 +224,13 @@ export const StudyView: React.FC<StudyViewProps> = ({ queue, onComplete, onExit 
       {/* Controls */}
       <div className="h-24 p-4 bg-white border-t border-slate-100 shrink-0">
         {!isFlipped ? (
-           <button 
+           <button
              onClick={handleReveal}
              className="w-full h-full bg-blue-600 text-white rounded-2xl text-lg font-bold shadow-lg shadow-blue-200 active:scale-98 transition-transform"
-             disabled={mode === 'spelling'} 
+             disabled={mode === 'spelling'}
              style={mode === 'spelling' ? { opacity: 0, pointerEvents: 'none' } : {}}
            >
-             显示答案
+             {mode === 'root' ? '查看词根' : '显示答案'}
            </button>
         ) : (
           <div className="grid grid-cols-4 gap-2 h-full">
