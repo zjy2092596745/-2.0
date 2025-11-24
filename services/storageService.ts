@@ -1,6 +1,5 @@
 import { Word, UserSettings, AppStats, AuthUser } from '../types';
 import * as XLSX from 'xlsx';
-import { DocumentParserService } from './documentParserService';
 
 const GLOBAL_KEYS = {
   USERS_DB: 'nurse_users_db',
@@ -190,8 +189,9 @@ export const StorageService = {
   },
 
   importFile: async (file: File, defaultCategory: string = "导入单词"): Promise<Word[]> => {
-    // 使用新的智能文档解析服务
+    // 使用懒加载的智能文档解析服务
     try {
+      const { DocumentParserService } = await import('./documentParserService');
       return await DocumentParserService.parseFile(file, defaultCategory);
     } catch (error) {
       console.error('文档解析失败:', error);
