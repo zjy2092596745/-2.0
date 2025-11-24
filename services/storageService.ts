@@ -1,5 +1,6 @@
 import { Word, UserSettings, AppStats, AuthUser } from '../types';
 import * as XLSX from 'xlsx';
+import { DocumentParserService } from './documentParserService';
 
 const GLOBAL_KEYS = {
   USERS_DB: 'nurse_users_db',
@@ -189,54 +190,12 @@ export const StorageService = {
   },
 
   importFile: async (file: File, defaultCategory: string = "导入单词"): Promise<Word[]> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      
-      reader.onload = (e) => {
-        try {
-          const data = e.target?.result;
-          let newWords: any[] = [];
-
-          if (file.name.endsWith('.json')) {
-             newWords = JSON.parse(data as string);
-             if (!Array.isArray(newWords)) newWords = [newWords];
-          } else {
-            const workbook = XLSX.read(data, { type: 'binary' });
-            const sheetName = workbook.SheetNames[0];
-            const sheet = workbook.Sheets[sheetName];
-            newWords = XLSX.utils.sheet_to_json(sheet);
-          }
-
-          const normalized: Word[] = newWords.map((item: any) => {
-            const word = item.word || item.Word || item.WORD || item['单词'] || item['Term'] || item['英文'];
-            const def = item.definition_cn || item.definition || item.Definition || item.meaning || item['释义'] || item['中文'];
-            
-            if (!word || !def) return null;
-
-            return {
-              id: Date.now() + Math.random(),
-              word: String(word).trim(),
-              ipa: item.ipa || item.IPA || item['音标'] || '',
-              def: String(def).trim(),
-              ex_en: item.example_en || item.example || item.Example || item['例句'] || '',
-              ex_cn: item.example_cn || item.translation || item['例句翻译'] || '',
-              // Default to 'defaultCategory' if category column missing
-              category: item.category || item.Category || item['分类'] || item['书名'] || defaultCategory, 
-              srs: { interval: 0, reps: 0, ease: 2.5, nextReview: 0 }
-            };
-          }).filter((w): w is Word => w !== null);
-
-          resolve(normalized);
-        } catch (err) {
-          reject(err);
-        }
-      };
-
-      if (file.name.endsWith('.json')) {
-        reader.readAsText(file);
-      } else {
-        reader.readAsBinaryString(file);
-      }
-    });
+    // 使用新的智能文档解析服务
+    try {
+      return await DocumentParserService.parseFile(file, defaultCategory);
+    } catch (error) {
+      console.error('文档解析失败:', error);
+      throw error;
+    }
   }
 };
