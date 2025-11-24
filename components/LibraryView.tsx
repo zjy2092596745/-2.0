@@ -105,7 +105,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ vocab, authUser, onUpd
         <div className="flex gap-2">
            <label className={`w-8 h-8 rounded-lg flex items-center justify-center cursor-pointer transition-colors ${authUser.isAdmin ? 'bg-red-50 text-red-600' : 'bg-blue-50 text-blue-600'}`}>
              <FileUp size={18} />
-             <input type="file" accept=".json,.xlsx,.csv" className="hidden" onChange={handleFileSelect} />
+             <input type="file" accept=".json,.xlsx,.xls,.csv,.docx,.pdf,.txt" className="hidden" onChange={handleFileSelect} />
            </label>
            <button 
              onClick={() => setAddModalOpen(true)} 
