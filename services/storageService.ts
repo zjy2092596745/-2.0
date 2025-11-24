@@ -163,6 +163,7 @@ export const StorageService = {
   // SRS Logic
   processRating: (word: Word, quality: number): { updatedWord: Word, isLearnedToday: boolean, isMastered: boolean } => {
     const srs = { ...word.srs };
+    const wasMastered = word.srs.interval >= 21;
     let isLearnedToday = false;
     let isMastered = false;
 
@@ -182,7 +183,12 @@ export const StorageService = {
       srs.nextReview = Date.now() + (srs.interval * 24 * 60 * 60 * 1000);
 
       if (srs.reps === 1) isLearnedToday = true;
-      if (srs.interval >= 21) isMastered = true;
+
+      // Only count mastery when the card crosses the 21-day threshold
+      // for the first time to avoid double-counting already mastered words.
+      if (!wasMastered && srs.interval >= 21) {
+        isMastered = true;
+      }
     }
 
     return { updatedWord: { ...word, srs }, isLearnedToday, isMastered };
