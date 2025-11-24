@@ -1,0 +1,7 @@
+{
+  "name": "QiQi's Vocab",
+  "description": "A personalized spaced-repetition vocabulary learning app for nurses.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
