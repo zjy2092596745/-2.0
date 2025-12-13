@@ -1,0 +1,10 @@
+# Python 信用贷款分类器所需的依赖包
+
+# pandas - 数据处理和分析库，用于处理表格数据
+pandas>=2.0.0
+
+# numpy - 科学计算库，提供数组和矩阵运算
+numpy>=1.24.0
+
+# scikit-learn - 机器学习库，提供各种机器学习算法
+scikit-learn>=1.3.0
